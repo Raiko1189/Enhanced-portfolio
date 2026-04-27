@@ -10,6 +10,12 @@ const navLinks = [
     { name: 'Contact', href: '#contact' },
 ];
 
+const socialLinks = [
+    { Icon: Github, href: 'https://github.com/Raiko1189' },
+    { Icon: Linkedin, href: 'https://www.linkedin.com/in/reiko-wakbeka-33882a349/' },
+    { Icon: Twitter, href: '#' },
+];
+
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -59,12 +65,17 @@ export default function Navbar() {
                         ))}
                     </ul>
                     <div className="flex gap-4 border-l border-white/10 pl-8">
-                        <a href="https://github.com/rebira678" className="p-2 hover:bg-white/5 rounded-full transition-colors text-gray-400 hover:text-white">
-                            <Github size={18} />
-                        </a>
-                        <a href="https://www.linkedin.com/in/rebira-adugna-6496b2373" className="p-2 hover:bg-white/5 rounded-full transition-colors text-gray-400 hover:text-white">
-                            <Linkedin size={18} />
-                        </a>
+                        {socialLinks.map(({ Icon, href }, index) => (
+                            <a
+                                key={index}
+                                href={href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-2 hover:bg-white/5 rounded-full transition-colors text-gray-400 hover:text-white"
+                            >
+                                <Icon size={18} />
+                            </a>
+                        ))}
                     </div>
                 </div>
 
@@ -99,9 +110,17 @@ export default function Navbar() {
                                 </li>
                             ))}
                             <div className="flex gap-6 pt-4 border-t border-white/5">
-                                <a href="https://github.com/rebira678" className="text-gray-400 hover:text-white"><Github /></a>
-                                <a href="https://www.linkedin.com/in/rebira-adugna-6496b2373" className="text-gray-400 hover:text-white"><Linkedin /></a>
-                                <a href="#" className="text-gray-400 hover:text-white"><Twitter /></a>
+                                {socialLinks.map(({ Icon, href }, index) => (
+                                    <a
+                                        key={index}
+                                        href={href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-gray-400 hover:text-white"
+                                    >
+                                        <Icon />
+                                    </a>
+                                ))}
                             </div>
                         </ul>
                     </motion.div>

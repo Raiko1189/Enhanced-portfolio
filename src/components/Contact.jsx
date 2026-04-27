@@ -205,6 +205,6 @@ export default function Contact() {
                     </motion.div>
                 </div>
             </div>
-        </section >
+        </section>
     );
 }
